@@ -49,6 +49,16 @@ public class Contact {
         }
     }
 
+    public void deleteContact(String Name) {
+        for (int i = 0; i < store.size(); i++) {
+            if (Name.equals(store.get(i).firstName)) {
+                store.remove(i);
+                break;
+            }
+
+        }
+    }
+
     public void display() {
         for (int i = 0; i < store.size(); i++) {
             System.out.println("Name: " + store.get(i).firstName + " " + store.get(i).lastName);

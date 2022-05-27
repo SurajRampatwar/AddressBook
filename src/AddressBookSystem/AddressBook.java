@@ -21,8 +21,17 @@ public class AddressBook {
                 Scanner name = new Scanner(System.in);
                 String Name = name.next();
                 contact.editContact(Name);
+            } else if (num == 3) {
+                System.out.println("Enter Name to Delete Contact");
+                Scanner name = new Scanner(System.in);
+                String Name = name.next();
+                contact.deleteContact(Name);
+
             } else if (num == 4) {
                 contact.display();
+            } else if (num == 5) {
+                break;
+
             }
         }
     }
