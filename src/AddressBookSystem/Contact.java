@@ -1,10 +1,13 @@
 package AddressBookSystem;
+
 import java.util.ArrayList;
 import java.util.Scanner;
+
 public class Contact {
     public String firstName, lastName, address, city, state, zip, phoneNumber, emailId;
     ArrayList<Contact> store = new ArrayList<>();
     Scanner get = new Scanner(System.in);
+
     public void addContact() {
         Contact contact = new Contact();
         System.out.println("Enter First Name And Last Name");
@@ -24,6 +27,28 @@ public class Contact {
         contact.emailId = get.next();
         store.add(contact);
     }
+
+    public void editContact(String Name) {
+        Contact contact = new Contact();
+        for (int i = 0; i < store.size(); i++) {
+            if (Name.equals(store.get(i).firstName)) {
+                System.out.println("Enter New Name");
+                Scanner edit = new Scanner(System.in);
+                contact.firstName = edit.next();
+                System.out.println("Enter Phone Number");
+                contact.phoneNumber = edit.next();
+                contact.lastName = store.get(i).lastName;
+                contact.address = store.get(i).address;
+                contact.city = store.get(i).city;
+                contact.state = store.get(i).state;
+                contact.zip = store.get(i).zip;
+                contact.emailId = store.get(i).emailId;
+                store.set(i, contact);
+            }
+            System.out.println("Name not found");
+        }
+    }
+
     public void display() {
         for (int i = 0; i < store.size(); i++) {
             System.out.println("Name: " + store.get(i).firstName + " " + store.get(i).lastName);

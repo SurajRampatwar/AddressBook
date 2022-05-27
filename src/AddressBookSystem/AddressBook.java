@@ -17,7 +17,10 @@ public class AddressBook {
             if (num == 1) {
                 contact.addContact();
             } else if (num == 2) {
-                break;
+                System.out.println("Enter Name to Edit Contact");
+                Scanner name = new Scanner(System.in);
+                String Name = name.next();
+                contact.editContact(Name);
             } else if (num == 4) {
                 contact.display();
             }
